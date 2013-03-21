@@ -1,0 +1,43 @@
+doctype 5
+html
+  head
+    title stylesheet.io
+    link(rel='stylesheet', href='/stylesheets/style.css')
+  body
+    textarea(id='style')
+    textarea(id='html')= html
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/lodash.js/1.0.1/lodash.min.js')
+    script(src='//js.pusher.com/1.12/pusher.min.js')
+    script
+      $('#style').on('keyup', _.debounce(function() {
+        $.ajax({
+          url: '/css',
+          type: 'post',
+          data: {
+            css: $('#style').val()
+          }
+        })
+        .done(function(result, status, xhr) {
+          console.log('done', arguments);
+        })
+        .fail(function(err) {
+          console.log('fail', arguments);
+        });
+      }, 900));
+      $('#html').on('keyup', _.debounce(function() {
+        $.ajax({
+          url: '/html',
+          type: 'post',
+          data: {
+            html: $('#html').val()
+          }
+        })
+        .done(function(result, status, xhr) {
+          console.log('done', arguments);
+        })
+        .fail(function(err) {
+          console.log('fail', arguments);
+        });
+      }, 1500));
+      

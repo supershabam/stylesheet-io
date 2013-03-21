@@ -1,0 +1,11 @@
+script(src='//js.pusher.com/1.12/pusher.min.js')
+script
+  var pusher = new Pusher('b28ca06b63f61a108fc1');
+  var channel = pusher.subscribe('change');
+  channel.bind('css', function(data) {
+    console.log('setting css', data.css);
+    window.document.getElementById('stylesheet-io').innerHTML = data.css;
+  });
+  channel.bind('html', function() {
+    window.location.reload();
+  });
