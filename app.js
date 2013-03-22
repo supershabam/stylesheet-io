@@ -61,7 +61,7 @@ app.get('/edit', function(req, res) {
     req.session.next = '/edit';
     return res.redirect('/');
   }
-  res.render('edit', {html: html});
+  res.render('edit', {html: html, css: css});
 });
 
 app.get('/view', function(req, res, next) {
