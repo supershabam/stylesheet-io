@@ -2,8 +2,23 @@ doctype 5
 html
   head
     title stylesheet.io
+    link(href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css", rel="stylesheet")
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    h1 stylesheet.io
-    a(href="/edit") edit
-    a(href="/view") view
+    .container-narrow
+      .masthead
+        ul.nav.nav-pills.pull-right
+          li.active
+            a(href='/') Home
+          li
+            a(href='/view') View
+          li
+            a(href='https://twitter.com/supershabam', target='_blank') Contact
+        h3.muted stylesheet.io
+      hr
+      .jumbotron
+        h1 Yo dawg,
+        p.lead I heard you hate frontend, so I made a backend for your frontend.
+      .footer
+        p A work-in-progress by 
+          a(href='https://twitter.com/supershabam', target='_blank') @supershabam

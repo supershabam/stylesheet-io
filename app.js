@@ -46,6 +46,9 @@ app.configure('development', function(){
 
 app.get('/sekret', function(req, res) {
   req.session.loggedIn = true;
+  if (req.session.next) {
+    return res.redirect(req.session.next);
+  }
   res.redirect('/');
 });
 
@@ -55,15 +58,13 @@ app.get('/', function(req, res) {
 
 app.get('/edit', function(req, res) {
   if (!req.session.loggedIn) {
+    req.session.next = '/edit';
     return res.redirect('/');
   }
   res.render('edit', {html: html});
 });
 
 app.get('/view', function(req, res, next) {
-  if (!req.session.loggedIn) {
-    return res.redirect('/');
-  }
   res.render('_viewscripts', function(err, raw) {
     if (err) {
       return next(err);
