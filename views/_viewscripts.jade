@@ -1,0 +1,12 @@
+script(src='/socket.io/socket.io.js')
+script(src='//cdnjs.cloudflare.com/ajax/libs/jquery-url-parser/2.2.1/purl.min.js')
+script
+  var url = purl();
+  var socketuri = url.attr('protocol') + '://' + url.attr('host') + ':' + url.attr('port');
+  var socket = io.connect(socketuri);
+  socket.on('change:css', function(data) {
+    window.document.getElementById('stylesheet-io').innerHTML = data.css;
+  });
+  socket.on('change:html', function(data) {
+    window.location.reload();
+  });
