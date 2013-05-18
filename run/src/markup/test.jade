@@ -1,5 +1,44 @@
+!!!
 html
   head
-    title oh hai
+    title stylesheet.io
+    link(rel='stylesheet', href='/stylesheets/main.css')
+    link(rel='stylesheet', href='//releases.flowplayer.org/5.4.1/skin/minimalist.css')
   body
-    h1 hello there!
+    .container-narrow
+      .jumbotron
+        h1 stylesheet.io
+        h3 The backend for your frontend
+        p Develop your stylesheets with realtime feedback on the browser, tablet, and
+          | mobile just by installing an app. We're changing the way you develop
+          | the frontend without changing the tools you know and love.
+      .content
+        .flowplayer
+          video
+            source(type='video/mp4', src='http://stream.flowplayer.org/bauhaus/624x260.mp4')
+        hr
+        .signup
+          a.btn.btn-success.btn-large(href='http://eepurl.com/zIDKL') Join the beta
+        hr
+        .features
+          .row-fluid
+            .span6
+              h4 Compile Everything
+              p Process Less, Sass, Stylus, Jade, Haml, Slim every time you save.
+              h4 Push to CDN
+              p Happy with your results? Push it to a content delivery network with one click.
+            .span6
+              h4 Live Reload
+              p See your code come to life in the browser, tablet, and mobile 
+                strong instantly.
+              h4 Use your tools
+              p Like using vim? sublime? What about git vs mecurial? Just keep doing what you're
+                | doing. We work 
+                strong with 
+                | your current setup. 
+              p We don't even care what language you use.
+      a(href="https://twitter.com/stylesheetio", class="twitter-follow-button", data-show-count="false", data-size="large") Follow @stylesheetio
+    script
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js')
+    script(src='//releases.flowplayer.org/5.4.1/flowplayer.min.js')

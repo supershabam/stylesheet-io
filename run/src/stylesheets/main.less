@@ -1,0 +1,40 @@
+@import "bootstrap/bootstrap";
+@import "bootstrap/responsive-767px-max";
+@import url(http://fonts.googleapis.com/css?family=Podkova:400,700);
+
+body {
+  background: url('/images/tiny_grid.png');
+  color: rgba(25, 25, 25, 0.8);
+  font-family: 'Podkova', serif;
+  margin-bottom: 150px;
+}
+
+.container-narrow {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+  & > h1 {
+    font-size: 62px;
+  }
+}
+
+.content {
+  background: white;
+  .box-shadow(3px 3px 5px rgba(0, 0, 0, 0.5));
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.features {
+  padding: 0 20px;
+}
+
+.signup {
+  margin: 0 auto;
+  text-align: center;
+}

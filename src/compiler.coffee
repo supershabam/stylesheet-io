@@ -3,6 +3,7 @@ fs = require "fs"
 jade = require "jade"
 less = require "less"
 path = require "path"
+sass = require "node-sass"
 
 exports.makeErrHtml = (err)->
   return "<html><head><title>stylesheet.io</title></head><body><h1>Error: #{err}</h1></body></html>"
@@ -44,5 +45,11 @@ exports.less = (file, cb)->
         return cb err if err
       cb null, css
 
-exports.less path.resolve("./test.less"), (err, css)->
-  console.log arguments
+exports.sass = (file, cb)->
+  sass.render({
+    file: file
+    success: (css)->
+      cb null, css
+    error: (err)->
+      cb err
+  })
