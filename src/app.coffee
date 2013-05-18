@@ -12,7 +12,7 @@ server = http.createServer(app)
 ioOptions =
   transports: ["htmlfile", "xhr-polling", "jsonp-polling"]
 io = socketio.listen server, ioOptions
-app.set "port", process.env.PORT || 3000
+app.set "port", process.env.PORT || 80
 app.use app.router
 # paths
 fontspath = path.resolve process.cwd(), "./run/src/fonts"
